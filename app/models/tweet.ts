@@ -9,6 +9,9 @@ export default class Tweet extends BaseModel {
   declare content: string
 
   @column()
+  declare userId: number
+
+  @column()
   declare image: string | null
 
   @column.dateTime({ autoCreate: true })

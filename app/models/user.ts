@@ -3,7 +3,7 @@ import hash from '@adonisjs/core/services/hash'
 import { compose } from '@adonisjs/core/helpers'
 import { BaseModel, column, hasMany } from '@adonisjs/lucid/orm'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
-import Tweet from './tweet.js'
+import Tweet from '#models/tweet'
 import type { HasMany } from '@adonisjs/lucid/types/relations'
 
 const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
@@ -25,6 +25,9 @@ export default class User extends compose(BaseModel, AuthFinder) {
   declare username: string | null
 
   @column()
+  declare avatar: string | null
+
+  @column()
   declare isVerified: boolean
 
   @column()
@@ -33,7 +36,7 @@ export default class User extends compose(BaseModel, AuthFinder) {
   @column({ serializeAs: null })
   declare password: string
 
-  @hasMany(() => Tweet, { foreignKey: 'user_id' })
+  @hasMany(() => Tweet)
   declare tweets: HasMany<typeof Tweet>
 
   @column.dateTime({ autoCreate: true })

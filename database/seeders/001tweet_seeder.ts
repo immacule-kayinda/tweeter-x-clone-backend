@@ -1,8 +1,19 @@
-import { TweetFactory } from '#database/factories/tweets_factory'
+import Tweet from '#models/tweet'
 import { BaseSeeder } from '@adonisjs/lucid/seeders'
+import { faker } from '@faker-js/faker'
 
 export default class extends BaseSeeder {
   async run() {
-    TweetFactory.createMany(50 * (Math.random() * 1000))
+    await Tweet.createMany(
+      Array(400)
+        .fill('')
+        .map(() => {
+          return {
+            content: faker.lorem.paragraph(),
+            image: faker.image.avatar(),
+            userId: faker.number.int({ min: 1, max: 25 }),
+          }
+        })
+    )
   }
 }
