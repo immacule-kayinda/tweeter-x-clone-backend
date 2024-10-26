@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "license": "UNLICENSED",
+  "engines": {
+    "node": "20.15.1"
+  },
   "scripts": {
     "start": "node bin/server.js",
     "build": "node ace build",
@@ -37,7 +40,8 @@
     "@adonisjs/prettier-config": "^1.4.0",
     "@adonisjs/tsconfig": "^1.4.0",
     "@japa/api-client": "^2.0.3",
-
+    "@japa/assert": "^3.0.0",
+    "@japa/plugin-adonisjs": "^3.0.1",
     "@swc/core": "1.7.26",
     "@types/luxon": "^3.4.2",
     "@types/node": "^22.8.1",
