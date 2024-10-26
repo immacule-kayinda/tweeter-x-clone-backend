@@ -2,4 +2,4 @@
 
 // UserFactory.with('tweets', 5, () => console.log(""))
 
-console.log("UserFactory")
+console.log('UserFactory')
