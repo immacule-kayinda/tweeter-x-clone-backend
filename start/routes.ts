@@ -16,4 +16,6 @@ router.get('/', async () => {
   }
 })
 router.get('api/tweets', [TweetsController, 'index'])
-router.put('api/tweets', [TweetsController, 'store'])
+router.get('api/tweets/:tweetId', [TweetsController, 'show'])
+router.get('api/tweets/user/:username', [TweetsController, 'indexByUsername'])
+router.post('api/tweets', [TweetsController, 'store'])
