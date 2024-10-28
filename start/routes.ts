@@ -26,5 +26,5 @@ router
   })
   .use(middleware.auth())
 
-router.post('/api/users', [UsersController, 'store']).use(middleware.guest())
+router.post('/api/users/login', [UsersController, 'store'])
 router.post('/api/users/register', [UsersController, 'register']).use(middleware.guest())
