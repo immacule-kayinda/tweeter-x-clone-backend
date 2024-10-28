@@ -10,7 +10,7 @@ export default class extends BaseSchema {
       table.string('lastname').notNullable()
       table.string('username').notNullable().unique()
       table.string('avatar').nullable()
-      table.boolean('is_verified').notNullable()
+      table.boolean('is_verified').notNullable().defaultTo(false)
       table.string('email', 254).notNullable().unique()
       table.string('password').notNullable()
 
